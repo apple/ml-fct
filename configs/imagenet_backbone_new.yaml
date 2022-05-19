@@ -1,0 +1,30 @@
+arch_params:
+  arch: ResNet50
+  num_classes: 1000 # This is the number of classes for architecture FC layer.
+  embedding_dim: 128
+  last_nonlin: True
+
+optimizer_params:
+  algorithm: sgd
+  lr: 1.024
+  weight_decay: 0.000030517578125
+  no_bn_decay: False
+  momentum: 0.875
+  nesterov: False
+
+dataset_params:
+  name: imagenet
+  data_root: data_store/imagenet-1.0.2/data/raw # This should contain training and validation dirs.
+  num_classes: 1000 # This is the number of classes to include for training.
+  num_workers: 20
+  batch_size: 1024
+
+lr_policy_params:
+  algorithm: cosine_lr
+  warmup_length: 5
+  epochs: 100
+  lr: 1.024
+
+epochs: 100
+label_smoothing: 0.1
+output_model_path: checkpoints/imagenet_new.pt

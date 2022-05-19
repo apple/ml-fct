@@ -1,0 +1,14 @@
+gallery_model_path: checkpoints/cifar100_new.pt
+query_model_path: checkpoints/cifar100_new.pt
+
+eval_params:
+  distance_metric: l2
+  verbose: True
+  compute_map: True
+  per_class: False
+
+dataset_params: # Test set of the dataset will be used as both gallery and query sets.
+  name: cifar100
+  data_root: data_store/cifar-100-python
+  num_workers: 20
+  batch_size: 1024

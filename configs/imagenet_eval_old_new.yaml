@@ -1,0 +1,14 @@
+gallery_model_path: checkpoints/imagenet_old_transformed.pt
+query_model_path: checkpoints/imagenet_new.pt
+
+eval_params:
+  distance_metric: l2
+  verbose: True
+  compute_map: True
+  per_class: False
+
+dataset_params: # Test set of the dataset will be used as both gallery and query sets.
+  name: imagenet
+  data_root: data_store/imagenet-1.0.2/data/raw
+  num_workers: 20
+  batch_size: 1024

@@ -1,0 +1,7 @@
+numpy
+Pillow
+torch
+torchvision
+tqdm
+scikit-learn
+PyYAML

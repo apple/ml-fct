@@ -1,0 +1,33 @@
+old_model_path: checkpoints/imagenet_old.pt
+new_model_path: checkpoints/imagenet_new.pt
+side_info_model_path: checkpoints/imagenet_500_simclr.pt # Comment this line for no side-info experiment.
+
+arch_params:
+  arch: MLP_BN_SIDE_PROJECTION
+  old_embedding_dim: 128
+  new_embedding_dim: 128
+  side_info_dim: 128
+  inner_dim: 2048
+
+optimizer_params:
+  algorithm: adam
+  lr: 0.0005
+  weight_decay: 0.000030517578125
+
+dataset_params:
+  name: imagenet
+  data_root: data_store/imagenet-1.0.2/data/raw # This should contain training and validation dirs.
+  num_classes: 1000 # This is the number of classes to include for training.
+  num_workers: 20
+  batch_size: 1024
+
+lr_policy_params:
+  algorithm: cosine_lr
+  warmup_length: 5
+  epochs: 80
+  lr: 0.0005
+
+epochs: 80
+switch_mode_to_eval: True
+output_transformation_path: checkpoints/imagenet_transformation.pt
+output_transformed_old_model_path: checkpoints/imagenet_old_transformed.pt
